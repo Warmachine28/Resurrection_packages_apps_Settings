@@ -101,16 +101,6 @@
             android:allowBackup="false"
             android:usesCleartextTraffic="true">
 
-        <!-- Screen color Settings Controls -->
-        <activity android:name=".ScreenColorSettings" android:label="@string/screencolor"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="nosensor">
-        </activity>
-        <activity android:name=".CustomScreenColor" android:label="@string/custom_screencolor"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="nosensor">
-        </activity>
-
         <activity android:name="Settings"
                 android:taskAffinity="com.android.settings"
                 android:label="@string/settings_label_launcher"
@@ -411,6 +401,12 @@
         </activity>
 
         <activity android:name=".SubSettings$BluetoothSubSettings"
+                android:taskAffinity="com.android.settings"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:parentActivityName="Settings">
+        </activity>
+
+        <activity android:name=".SubSettings$SecuritySubSettings"
                 android:taskAffinity="com.android.settings"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:parentActivityName="Settings">
@@ -913,6 +909,7 @@
                 android:resource="@id/display_and_lights_settings" />
         </activity-alias>
 
+        <activity android:name =".rr.Halo" />
         <activity android:name="Settings$DeviceInfoSettingsActivity"
                 android:theme="@style/Theme.SubSettingsDialogWhenLarge"
                 android:label="@string/device_info_settings"
@@ -1249,6 +1246,18 @@
                 android:value="com.android.settings.rr.Pie.PieControl" />
             <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
                 android:resource="@id/button_settings" />
+        </activity>
+
+ 	<!-- Halo -->
+        <activity android:name="Settings$HaloSettingsActivity"
+             android:label="@string/rr_halo_enable_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.Halo" />
         </activity>
 
         <activity android:name="MonitoringCertInfoActivity"
@@ -2851,12 +2860,6 @@
         <receiver android:name=".users.ProfileUpdateReceiver">
             <intent-filter>
                 <action android:name="android.provider.Contacts.PROFILE_CHANGED" />
-            </intent-filter>
-        </receiver>
-
-        <receiver android:name=".sim.SimSelectNotification">
-            <intent-filter>
-                <action android:name="android.intent.action.SIM_STATE_CHANGED"></action>
             </intent-filter>
         </receiver>
 

@@ -6,7 +6,8 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 	android-support-v4 \
 	android-support-v13 \
 	jsr305 \
-	org.cyanogenmod.platform.internal
+	org.cyanogenmod.platform.internal \
+	libphonenumber
 
 LOCAL_MODULE_TAGS := optional
 
@@ -17,9 +18,6 @@ LOCAL_SRC_FILES := \
 LOCAL_JAVA_LIBRARIES += org.apache.http.legacy
 
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
-
-LOCAL_SRC_FILES += \
-        src/com/android/display/IPPService.aidl
 
 LOCAL_PACKAGE_NAME := Settings
 LOCAL_CERTIFICATE := platform

@@ -48,6 +48,7 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
+import android.provider.Settings.Global;
 import android.text.TextUtils;
 import android.transition.TransitionManager;
 import android.util.ArrayMap;
@@ -77,6 +78,7 @@ import com.android.settings.rr.FlingSettings;
 import com.android.settings.rr.SmartbarSettings;
 import com.android.settings.rr.PulseSettings;
 import com.android.settings.rr.FloatingWindows;
+import com.android.settings.rr.Halo;
 import com.android.settings.headsup.HeadsUpSettings;
 import com.android.settings.applications.InstalledAppDetails;
 import com.android.settings.applications.ManageApplications;
@@ -292,6 +294,7 @@ public class SettingsActivity extends Activity
             R.id.sound_settings,
             R.id.display_and_lights_settings,
             R.id.notification_manager,
+            R.id.status_bar_settings,
             R.id.storage_settings,
             R.id.application_settings,
             R.id.battery_settings,
@@ -313,6 +316,7 @@ public class SettingsActivity extends Activity
 	    R.id.rr_heads_up,
 	    R.id.gesture_anywhere,
 	    R.id.pie_control,
+	    R.id.rr_halo,
             R.id.dashboard,
             R.id.privacy_settings_cyanogenmod
     };
@@ -409,7 +413,8 @@ public class SettingsActivity extends Activity
             FlingSettings.class.getName(),
             SmartbarSettings.class.getName(),
             PulseSettings.class.getName(),
-            WeatherServiceSettings.class.getName()
+            WeatherServiceSettings.class.getName(),
+	    Halo.class.getName()
     };
 
 
@@ -1398,6 +1403,10 @@ public class SettingsActivity extends Activity
     }
 
     private void addExternalTiles(List<DashboardCategory> target) {
+        if (Global.getInt(getContentResolver(), Global.DEVICE_PROVISIONED, 0) == 0) {
+            // Don't add external tiles until device is set up.
+            return;
+        }
         Map<Pair<String, String>, DashboardTile> addedCache =
                 new ArrayMap<Pair<String, String>, DashboardTile>();
         UserManager userManager = UserManager.get(this);

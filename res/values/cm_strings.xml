@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2012-2016 The CyanogenMod Project
+               (C) 2017 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -41,11 +42,15 @@
     <string name="root_access_adb">ADB only</string>
     <string name="root_access_all">Apps and ADB</string>
 
+    <!-- Preference link for root appops -->
+    <string name="root_appops_title">Manage root accesses</string>
+    <string name="root_appops_summary">View and control the root rules</string>
+
     <!-- NFC PreferenceCategory title -->
     <string name="nfc_title_category">NFC</string>
 
-    <!-- About phone screen, CyanogenMod version -->
-    <string name="mod_version">CyanogenMod version</string>
+    <!-- About phone screen, LineageOS version -->
+    <string name="mod_version">LineageOS version</string>
     <string name="mod_version_default">Unknown</string>
 
     <!-- About phone screen, Device model -->
@@ -53,8 +58,8 @@
     <!-- About phone screen, Device name -->
     <string name="device_name">Device name</string>
 
-    <!-- About phone screen, CyanogenMod Api Level -->
-    <string name="mod_api_level">CyanogenMod API level</string>
+    <!-- About phone screen, LineageOS Api Level -->
+    <string name="mod_api_level">LineageOS API level</string>
     <string name="mod_api_level_default">Unknown</string>
 
     <!-- About phone screen, build date -->
@@ -605,7 +610,7 @@
 
     <!-- Proximity wake -->
     <string name="proximity_wake_title">Prevent accidental wake-up</string>
-    <string name="proximity_wake_summary">Check the proximity sensor prior to waking up screen</string>
+    <string name="proximity_wake_summary">Check the proximity sensor prior to wake-ups triggered by gestures</string>
 
     <!-- Turn on display when power connected; turn off display when power disconnected -->
     <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
@@ -620,7 +625,7 @@
 
     <!-- Hardware tunables - Vibrator intensity -->
     <string name="vibrator_intensity_title">Vibrator intensity</string>
-    <string name="vibrator_warning">Values higher than %1$d are not recommended</string>
+    <string name="vibrator_warning">Values higher than %1$d%% are not recommended</string>
 
     <!-- Hardware tunables - Color calibration -->
     <string name="color_calibration_title">Color calibration</string>
@@ -649,25 +654,6 @@
     <string name="display_rotation_90_title">90 degrees</string>
     <string name="display_rotation_180_title">180 degrees</string>
     <string name="display_rotation_270_title">270 degrees</string>
-
-    <!-- Display settings.  Screen color. -->
-    <string name="screencolor">Screen color</string>
-    <string name="screencolor_summary">Tune screen hue, saturation, contrast or intensity</string>
-    <string name="custom_screencolor">Custom screen color</string>
-    <string name="screencolor_save">Save</string>
-    <string name="screencolor_cancel">Cancel</string>
-    <string name="restore_preview">View default picture</string>
-    <string name="selectnewfile_menu">View new picture from Gallery</string>
-    <string name="selectfile_menu">View picture from Gallery</string>
-    <string name="restore_default_str">Reset</string>
-    <string name="hue_str">Hue: <xliff:g id="hue_value">%1$s</xliff:g></string>
-    <string name="saturation_str">Saturation: <xliff:g id="saturation_value">%1$s</xliff:g></string>
-    <string name="contrast_str">Contrast: <xliff:g id="contrast_value">%1$s</xliff:g></string>
-    <string name="intensity_str">Intensity: <xliff:g id="intensity_str_value">%1$s</xliff:g></string>
-
-    <string name="screen_color_standard">Standard</string>
-    <string name="screen_color_vivid">Vivid</string>
-    <string name="screen_color_custom">Custom</string>
 
     <!-- LiveDisplay -->
     <string name="live_display_title" translatable="false">LiveDisplay</string>
@@ -699,12 +685,22 @@
     <string name="live_display_color_profile_photography_summary">Perfect color reproduction for photos</string>
     <string name="live_display_color_profile_basic_title">Basic</string>
     <string name="live_display_color_profile_basic_summary">Use the display uncalibrated</string>
+    <string name="live_display_color_profile_adaptive_title">Adaptive</string>
+    <string name="live_display_color_profile_adaptive_summary">Colors adapt to ambient conditions</string>
 
  <!-- Settings switch for updating Cyanogen recovery -->
     <string name="update_recovery_title">Update Cyanogen recovery</string>
     <string name="update_recovery_summary">Update recovery with system updates</string>
     <string name="update_recovery_on_warning">NOTICE: When this feature is enabled, your installed recovery will be replaced by one included with the current version of the running OS.\n\nYour recovery will be updated along with upgrades to your system, helping to ensure compatibility with future versions.\n\nWould you like to enable this feature?</string>
     <string name="update_recovery_off_warning">WARNING: When this feature is disabled, your installed recovery will not be updated with OS upgrades.\n\nFuture OS updates may not install with outdated or custom recovery versions.\n\nDo you really want to disable this feature?</string>
+
+    <!-- LiveDisplay : Picture Adjustment -->
+    <string name="picture_adjustment_title">Picture adjustment</string>
+    <string name="picture_adjustment_summary">Adjust hue, saturation, intensity, and contrast</string>
+    <string name="adj_hue_title">Hue</string>
+    <string name="adj_saturation_title">Saturation</string>
+    <string name="adj_intensity_title">Intensity</string>
+    <string name="adj_contrast_title">Contrast</string>
 
     <!-- Whether to display IME switcher notifcation -->
     <string name="ime_switcher_notify">Selector icon</string>
@@ -858,7 +854,7 @@
 
     <!-- Privacy Settings Header item -->
     <string name="privacy_settings_cyanogenmod_title">Privacy</string>
-    <string name="privacy_settings_cyanogenmod_category" translatable="false">CyanogenMod</string>
+    <string name="privacy_settings_cyanogenmod_category" translatable="false">LineageOS</string>
 
     <!-- Privacy Guard -->
     <string name="privacy_guard_default_title">Enabled by default</string>
@@ -1083,6 +1079,12 @@
     <!-- [CHAR LIMIT=50] Like zen_mode_summary_selected_messages, but part of a list, so lower case if needed -->
     <string name="zen_mode_summary_selected_messages">selected messages</string>
 
+    <!-- Allow vibration in zen mode -->
+    <string name="zen_mode_vibration">Vibration</string>
+    <string name="zen_mode_vibration_never">Don\'t vibrate</string>
+    <string name="zen_mode_vibration_calls_only">Only vibrate for calls</string>
+    <string name="zen_mode_vibration_calls_and_notifications">Vibrate for calls and notifications</string>
+
     <!-- About phone settings screen, setting option dialog title to show regulatory information [CHAR LIMIT=25] -->
 
     <string name="regulatory_information_dialog_title" translatable="false">@string/regulatory_information</string>
@@ -1216,21 +1218,46 @@
     <string name="app_notification_no_ongoing_on_keyguard_title">Disable persistent notification on lock screen</string>
     <string name="app_notification_no_ongoing_on_keyguard_summary">Never show persistent notifications from this app on the lock screen</string>
 
+    <!-- Notification sound timeout -->
+    <string name="app_notification_sound_timeout_title">Minimum time between notification sounds</string>
+    <string name="app_notification_sound_timeout_summary_template">Allow sounds or vibration no more than once every <xliff:g id="duration">%1$s</xliff:g></string>
+    <string name="app_notification_sound_timeout_value_none">No restriction</string>
+    <string name="app_notification_sound_timeout_value_10_seconds">10 seconds</string>
+    <string name="app_notification_sound_timeout_value_30_seconds">30 seconds</string>
+    <string name="app_notification_sound_timeout_value_1_minute">1 minute</string>
+    <string name="app_notification_sound_timeout_value_5_minutes">5 minutes</string>
+    <string name="app_notification_sound_timeout_value_15_minutes">10 minutes</string>
+    <string name="app_notification_sound_timeout_value_30_minutes">30 minutes</string>
+
     <!-- CmRadioInfo -->
     <string name="cm_radio_info_label">Enhanced radio control</string>
 
     <!-- Radio Control (IMS/MBN etc.) -->
     <string name="cm_radio_info_mbn_auto_load_on_label">Turn off MBN auto load</string>
     <string name="cm_radio_info_mbn_auto_load_off_label">Turn on MBN auto load</string>
-    <string name="cm_radio_info_volte_avail_ovr_on_label">Turn off VoLTE dbg</string>
-    <string name="cm_radio_info_volte_avail_ovr_off_label">Turn on VoLTE dbg</string>
-    <string name="cm_radio_info_vt_avail_ovr_on_label">Turn off VT dbg</string>
-    <string name="cm_radio_info_vt_avail_ovr_off_label">Turn on VT dbg</string>
-    <string name="cm_radio_info_wfc_avail_ovr_on_label">Turn off WFC dbg</string>
-    <string name="cm_radio_info_wfc_avail_ovr_off_label">Turn on WFC dbg</string>
+    <string name="cm_radio_info_volte_avail_ovr_on_label">Turn off VoLTE debug</string>
+    <string name="cm_radio_info_volte_avail_ovr_off_label">Turn on VoLTE debug</string>
+    <string name="cm_radio_info_vt_avail_ovr_on_label">Turn off VT debug</string>
+    <string name="cm_radio_info_vt_avail_ovr_off_label">Turn on VT debug</string>
+    <string name="cm_radio_info_wfc_avail_ovr_on_label">Turn off WFC debug</string>
+    <string name="cm_radio_info_wfc_avail_ovr_off_label">Turn on WFC debug</string>
     <string name="cm_radio_info_adb_log_on_label">Turn off ADB radio log</string>
     <string name="cm_radio_info_adb_log_off_label">Turn on ADB radio log</string>
     <string name="cm_radio_info_diag_log_on_label">Turn off Diag log</string>
     <string name="cm_radio_info_diag_log_off_label">Turn on Diag log</string>
 
+    <string name="not_available_with_app">Not available with %1$s</string>
+    <string name="blacklist_country_code_plus" translatable="false">+</string>
+
+    <!-- Format string for fingerprint location message -->
+    <string name="security_settings_fingerprint_enroll_find_sensor_message_cm">Locate the fingerprint sensor on the <xliff:g id="sensor_location">%1$s</xliff:g> of your phone.</string>
+
+    <!-- Fingerprint sensor locations -->
+    <string name="security_settings_fingerprint_sensor_location_back">back</string>
+    <string name="security_settings_fingerprint_sensor_location_front">front</string>
+    <string name="security_settings_fingerprint_sensor_location_left">left side</string>
+    <string name="security_settings_fingerprint_sensor_location_right">right side</string>
+
+    <!-- SIM status format string -->
+    <string name="sim_status_format_string">Voice: <xliff:g id="voice_status">%1$s</xliff:g> / Data: <xliff:g id="data_status">%2$s</xliff:g></string>
 </resources>
